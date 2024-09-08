@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StudentList>
+    <Student ID="1">
+        <FirstName>John</FirstName>
+        <Surname>Doe</Surname>
+        <Age>21</Age>
+        <Major>Computer Science</Major>
+    </Student>
+    <Student ID="2">
+        <FirstName>Jane</FirstName>
+        <Surname>Smith</Surname>
+        <Age>22</Age>
+        <Major>Mathematics</Major>
+    </Student>
+    <Student ID="3">
+        <FirstName>Michael</FirstName>
+        <Surname>Johnson</Surname>
+        <Age>23</Age>
+        <Major>Physics</Major>
+    </Student>
+</StudentList>
+
