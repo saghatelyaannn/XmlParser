@@ -1,34 +1,32 @@
 #include "../lib/XmlParser.hpp"
 #include <iostream>
 
-void parseElement(tinyxml2::XMLElement* element, XmlStructure& structure, XmlMap& combinedData) {
+void parseElement(tinyxml2::XMLElement* element, XmlStructure& structure) {
     if (!element) {
         return;
     }
 
-    const char* elementName = element->Name();
+    // Создаем новую карту для каждого верхнего элемента (например, Student)
+    XmlMap combinedData;
+
+    // Обрабатываем атрибуты элемента
     const tinyxml2::XMLAttribute* attribute = element->FirstAttribute();
     while (attribute) {
         combinedData[attribute->Name()] = attribute->Value();
         attribute = attribute->Next();
     }
 
-    if (element->GetText() && element->GetText()[0] != '\0') {
-        combinedData[elementName] = element->GetText();
-    }
-
+    // Обрабатываем дочерние элементы (текстовые данные)
     tinyxml2::XMLElement* child = element->FirstChildElement();
-    bool hasChild = false;
     while (child) {
-        hasChild = true;
-        parseElement(child, structure, combinedData);
+        if (child->GetText() && child->GetText()[0] != '\0') {
+            combinedData[child->Name()] = child->GetText();
+        }
         child = child->NextSiblingElement();
     }
 
-    if (!hasChild && !combinedData.empty()) {
-        structure.push_back(combinedData);
-        combinedData.clear(); 
-    }
+    // Добавляем карту в структуру после обработки всех атрибутов и дочерних элементов
+    structure.push_back(combinedData);
 }
 
 XmlStructure parseXML(const std::string& filename) {
@@ -41,8 +39,12 @@ XmlStructure parseXML(const std::string& filename) {
     XmlStructure structure;
     tinyxml2::XMLElement* root = doc.RootElement();
     if (root) {
-        XmlMap combinedData;
-        parseElement(root, structure, combinedData);
+        // Обрабатываем каждый элемент верхнего уровня (например, Student)
+        tinyxml2::XMLElement* element = root->FirstChildElement();
+        while (element) {
+            parseElement(element, structure);
+            element = element->NextSiblingElement();
+        }
     }
 
     return structure;

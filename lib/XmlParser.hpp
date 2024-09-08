@@ -9,7 +9,7 @@
 using XmlMap = std::map<std::string, std::string>;
 using XmlStructure = std::vector<XmlMap>;
 
-void parseElement(tinyxml2::XMLElement* element, XmlStructure& structure, const std::string& parent = "");
+void parseElement(tinyxml2::XMLElement* element, XmlStructure& structure,XmlMap& combinedData);// const std::string& parent = "");
 
 XmlStructure parseXML(const std::string& filename);
 
