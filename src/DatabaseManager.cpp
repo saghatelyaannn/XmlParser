@@ -106,11 +106,13 @@ void insertDataIntoTable(sql::Connection* con, const XmlStructure& structure, co
             std::string values = "(";
 
             for (const auto& [key, value] : xmlMap) {
-                columns += key + ",";
-                values += "'" + value + "',";
+                columns += key + ", ";
+                values += "'" + value + "', ";
             }
 
             columns.pop_back();
+            columns.pop_back();
+            values.pop_back();
             values.pop_back();
             columns += ")";
             values += ")";
