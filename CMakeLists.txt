@@ -16,5 +16,5 @@ add_executable(XmlParser ${SOURCE_DIR}/main.cpp)
 
 target_include_directories(XmlParser PRIVATE ${LIB_DIR})
 
-target_link_libraries(XmlParser PRIVATE MyLib mysqlcppconn tinyxml2)
+target_link_libraries(XmlParser PRIVATE parsing_and_db_lib  mysqlcppconn tinyxml2)
 

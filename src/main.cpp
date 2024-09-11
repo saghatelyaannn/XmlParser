@@ -18,7 +18,12 @@ int main(int argc, char *argv[]) {
     const std::string database = argv[5];
     const std::string table_name = argv[6];
 
+	if(structure[0].empty() || structure.empty()) {
+		return -1;
+	}
+
     printXmlStructure(structure);
+
 
     sql::Connection *con = connectDatabase(username, password, hostname, database);
     
