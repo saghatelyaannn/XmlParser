@@ -52,7 +52,7 @@ XmlStructure parseXML(const std::string& filename) {
         return structure;
 
     } catch (const std::runtime_error& e) {
-        std::cerr << "Ошибка: " << e.what() << std::endl;
+        std::cerr << "Runtime error: " << e.what() << std::endl;
         return {};
     }
 }
