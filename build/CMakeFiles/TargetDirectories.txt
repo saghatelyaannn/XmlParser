@@ -1,0 +1,4 @@
+/home/saghatelyaannn/Desktop/XmlParser/build/CMakeFiles/parsing_and_db_lib.dir
+/home/saghatelyaannn/Desktop/XmlParser/build/CMakeFiles/XmlParser.dir
+/home/saghatelyaannn/Desktop/XmlParser/build/CMakeFiles/edit_cache.dir
+/home/saghatelyaannn/Desktop/XmlParser/build/CMakeFiles/rebuild_cache.dir
