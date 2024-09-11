@@ -1,6 +1,12 @@
 #include <iostream>
+#include <fstream>
 #include "../lib/XmlParser.hpp"
 #include "../lib/DatabaseManager.hpp"
+
+bool fileExists(const std::string& filename) {
+    std::ifstream file(filename);
+    return file.good();
+}
 
 int main(int argc, char *argv[]) {
 
@@ -9,6 +15,11 @@ int main(int argc, char *argv[]) {
         std::cerr << "Usage: " << argv[0] << " </path/to/the/xml/file> <host> <user> <password> <database-name> <table-name>" << std::endl;
         return -1;
     }
+
+	if (!fileExists(argv[1])) {
+		std::cout << "File does not exist." << std::endl;
+		return -1;
+	}
 
     XmlStructure structure = parseXML(argv[1]);
 

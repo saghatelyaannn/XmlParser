@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -shared -Wl,-soname,libparsing_and_db_lib.so -o libparsing_and_db_lib.so CMakeFiles/parsing_and_db_lib.dir/src/DatabaseManager.cpp.o CMakeFiles/parsing_and_db_lib.dir/src/XmlParser.cpp.o 

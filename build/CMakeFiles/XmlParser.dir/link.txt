@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/XmlParser.dir/src/main.cpp.o -o XmlParser  -Wl,-rpath,/home/saghatelyaannn/Desktop/XmlParser/build libparsing_and_db_lib.so -lmysqlcppconn -ltinyxml2 
